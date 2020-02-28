@@ -4,6 +4,7 @@ This is not secure yet, and therfore not for production as is anyhow now.
 Next:
 * Secure the file upload. It has already of file limit of 2MB, also secure file name, I am not sure this is enough.
 * Secure the processing. It is secured against the long running processing. I am not sure this is enough though.
+* More robust tabular file reading, probably let the user choose columns to be processed on client side before or after upload. Also more robust against formats, delimiters, ... (now it dumply expects a csv with delimiter=';'). 
 * Pretty print results (rules)
 * Probably serve by a beautiful (but sober?) rendering engine.
 * Customize parameters on client side (should let the user experience min_support and min_confidence at a reasonable amounts.
