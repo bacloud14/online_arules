@@ -73,7 +73,7 @@ def handleUpload():
 	  
 @app.route("/")
 def fileFrontPage():
-  return render_template('fileform.html')
+  return render_template('index.html')
 
 #sess = Session()
 if __name__ == '__main__':
