@@ -1,0 +1,39 @@
+html{
+    background-size: cover;
+    background: url(arulesBackground.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;   
+}
+body{
+    text-align: center;
+}
+form{
+    display: inline-block;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    height: 50%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+#file{
+    padding: 10;
+    margin: 10;
+    height: 10%;
+}
+#min_support{
+    padding: 10;
+    margin: 10; 
+    width: 150;
+}
+#min_confidence{
+    padding: 10;
+    margin: 10; 
+    width: 150;
+}
+#submit{
+    padding: 10;
+    margin: 10;   
+}
