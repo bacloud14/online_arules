@@ -18,6 +18,7 @@ ALLOWED_EXTENSIONS = {'csv'} #'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif',
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 20 * 1024 * 1024
+app.static_folder = 'static'
 
 def allowed_file(filename):
   return '.' in filename and \

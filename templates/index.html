@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>File Upload</title>
-        <link rel="stylesheet" href="../stylesheet.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" />
     </head>
     <body>
         <form action="/handleUpload" method="post" enctype="multipart/form-data">
