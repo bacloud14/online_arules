@@ -66,7 +66,7 @@ def handleUpload():
       print(r.shape)
       r = list(r.itertuples(index=False, name=None))
       r = [tuple(filter(bool, tup)) for tup in r]
-      itemsets, rules = process(data = r[1:], min_support=0.02,  min_confidence=0.05)
+      itemsets, rules = process(data = r[1:], min_support=request.files['min_support'],  min_confidence=request.files['min_confidence'])
       rules = [rule for rule in rules if 'nan' not in str(rule)]
       return (jsonify(str(sorted(rules, key=lambda rule: rule.lift))))
   return redirect(url_for('fileFrontPage', #filename=filename
