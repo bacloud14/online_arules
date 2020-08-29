@@ -2,13 +2,21 @@
     <head>
         <title>File Upload</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" />
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
     </head>
     <body>
+		<nav>
+		  <div class="nav-bg"></div>
+		  <ul>
+			<li><a href="https://github.com/bacloud14/online_arules">View on GitHub</a></li>
+			<li><a href="https://github.com/tommyod/Efficient-Apriori">Efficient-Apriori</a></li>
+		  </ul>
+		</nav>
         <form action="/handleUpload" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="file"/><BR>
             <input type="text" name="min_support" placeholder="min_support" id="min_support"/><BR>
             <input type="text" name="min_confidence" placeholder="min_confidence" id="min_confidence"/><BR>
             <input type="submit" value="Upload" id="submit"/><BR>
-        </form> 
+        </form>
     </body>
 </html>

@@ -25,7 +25,7 @@ def allowed_file(filename):
        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	   
 def arules(data, min_support, min_confidence):
-	itemsets, rules = apriori(data, min_support=0.02,  min_confidence=0.05)
+	itemsets, rules = apriori(data, min_support=min_support,  min_confidence=min_confidence)
 	return [itemsets, rules]
 
 def process(data, min_support, min_confidence):
@@ -57,16 +57,15 @@ def handleUpload():
     if file and allowed_file(file.filename):
       filename = secure_filename(file.filename)
       data = file.read()
+      file.seek(0); 
       file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
       r = pd.read_csv(StringIO(data.decode('utf8')), sep=';')
-      print(r.shape)
       r = r.loc[:, r.isnull().mean() < .8]
       r.dropna(axis=0, how='all', inplace=True)
       r.fillna('nan', inplace=True)
-      print(r.shape)
       r = list(r.itertuples(index=False, name=None))
       r = [tuple(filter(bool, tup)) for tup in r]
-      itemsets, rules = process(data = r[1:], min_support=request.form['min_support'],  min_confidence=request.form['min_confidence'])
+      itemsets, rules = process(data = r[1:], min_support=request.form['min_support'] or 0.02,  min_confidence=request.form['min_confidence'] or 0.05)
       rules = [rule for rule in rules if 'nan' not in str(rule)]
       return (jsonify(str(sorted(rules, key=lambda rule: rule.lift))))
   return redirect(url_for('fileFrontPage', #filename=filename
